@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.text.HtmlCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -57,7 +58,7 @@ public class MessageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         String type = message.getType();
         if (type.equalsIgnoreCase("Text")){
 
-            ((MessageViewHolder) holder).messageBody.setText(message.getText());
+            ((MessageViewHolder) holder).messageBody.setText(HtmlCompat.fromHtml(message.getText(), 0));
         }
         else if (type.equalsIgnoreCase("Image")) {
 
