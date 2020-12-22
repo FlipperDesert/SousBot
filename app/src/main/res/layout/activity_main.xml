@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:background="@color/colorPrimaryVariant"
-    tools:context="com.videojames.watsontest.MainActivity">
+    tools:context="com.videojames.sousbot.MainActivity">
 
     <include layout="@layout/message_window" />
 

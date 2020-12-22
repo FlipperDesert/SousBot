@@ -1,6 +1,13 @@
-package com.videojames.watsontest.util;
+package com.videojames.sousbot.util;
 
+
+/**
+A list of constants used to interact with the API services required for the app to function.
+Currently, only the IBM assistant keys are in use, but the speech-to-text, text-to-speech and
+Spoonacular keys are kept here as variables for convenience in case of a later need.
+ */
 public class Constants {
+
 
     public static String Spoon_API_key = "4fe803bdea774ceda17e70268b4906a5";
 

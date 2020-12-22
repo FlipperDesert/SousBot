@@ -1,4 +1,4 @@
-package com.videojames.watsontest;
+package com.videojames.sousbot;
 
 import android.content.Context;
 
