@@ -36,6 +36,8 @@
         android:paddingHorizontal="1dp"
         android:elevation="2dp"
         android:textSize="18sp"
+        android:autoLink="web"
+        android:linksClickable="true"
         android:text="Test message please ignore unless you are testing the wrapping"
         />
 
