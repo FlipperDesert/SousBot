@@ -12,17 +12,17 @@ public class ChatMessage {
     private String url;
     private String title;
     private String description;
-    private String currentUser;
+    private boolean currentUser;
     private String timestamp;
     private String type;
 
     /**
      * Creates a text type chat message,
      * @param input = The received message
-     * @param id = The identity of the sender ("1" = user "2" = bot)
+     * @param id = The identity of the sender (true = user false = bot)
      * The timestamp is the recorded date and time for error handling purposes.
      */
-    public ChatMessage (String input, String id) {
+    public ChatMessage (String input, boolean id) {
         this.type = "Text";
         this.text = input;
         this.currentUser = id;
@@ -31,9 +31,9 @@ public class ChatMessage {
 
     /**
      * Creates an image message
-     * @param runtimeResponseGeneric =  The received RuntimeResponseGeneric message from Watson.
+     * @param runtimeResponseGeneric =  The received RuntimeResponseGeneric JSON message from Watson.
      *  Leaves the text field empty and sets the title, description and URL based on the received
-     *  JSON information. The user is set to 2 (the bot) automatically and the message type is set
+     *  JSON information. The user is set to false (the bot) automatically and the message type is set
      *  to be an image.
      *  The timestamp is the recorded date and time for error handling purposes.
      */
@@ -42,7 +42,7 @@ public class ChatMessage {
         this.title = runtimeResponseGeneric.title();
         this.description = runtimeResponseGeneric.description();
         this.url = runtimeResponseGeneric.source();
-        this.currentUser = "2";
+        this.currentUser = false;
         this.type = "Image";
         this.timestamp = date.toString();
     }
@@ -75,17 +75,18 @@ public class ChatMessage {
         return url;
     }
 
-    /** Sets the message sender with a 1 or a 2 to check if it is the user or bot
+    /** Sets the message sender with a boolean check for if it is the user or bot
      *
-     * @param input = The identity of the sender ("1" = user "2" = bot)
+     * @param input = The identity of the sender (true = user false = bot)
      */
-    public void setUser(String input) {
+    public void setUser(boolean input) {
         currentUser = input;
     }
 
-    /** Returns the sender of the message
+    /**
+     * @return Returns the sender of the message
      */
-    public String getUser() {
+    public boolean getUser() {
         return currentUser;
     }
 

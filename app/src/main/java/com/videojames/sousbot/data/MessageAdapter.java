@@ -1,6 +1,5 @@
 package com.videojames.sousbot.data;
 
-import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,7 +60,7 @@ public class MessageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     public int getItemViewType(int input) {
 
         ChatMessage message = messages.get(input);
-        if (message.getUser() != null && message.getUser().equals("1")) {
+        if (message.getUser()) {
             return user;
         } else {
             return input;
@@ -110,7 +109,7 @@ public class MessageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     itemView finds the message_body and image fields in our drawable folder.
  */
 class MessageViewHolder extends RecyclerView.ViewHolder {
-    // public View avatar;
+
     public TextView messageBody;
     public ImageView imageBody;
 

@@ -45,8 +45,6 @@ public class MainActivity extends AppCompatActivity {
      * Assistant is the conversation service, STT and TTS might come later
      */
     private Assistant assistant;
-    // private TextToSpeech textToSpeech;
-    // private SpeechToText speechToText;
     private Response<SessionResponse> watsonSession;
 
     /** Loads the EditText and ImageButton on the layout to add functionality. Creates an
@@ -94,15 +92,6 @@ public class MainActivity extends AppCompatActivity {
     private void watsonServices() {
         assistant = new Assistant(Constants.ibmVersionDate, new IamAuthenticator(Constants.ibmApiKey));
         assistant.setServiceUrl(Constants.ibmUrl);
-
-        /*       Text to speech credentials for later use
-        textToSpeech = new TextToSpeech(new IamAuthenticator(Constants.ibmTtsApi));
-        textToSpeech.setServiceUrl(Constants.ibmTtsUrl);
-        */
-
-        /*       Speech to text credentials for later use
-        speechToText = new SpeechToText(new IamAuthenticator(Constants.ibmSttapi));
-        speechToText.setServiceUrl(Constants.ibmStturl); */
     }
 
 
@@ -116,15 +105,14 @@ public class MainActivity extends AppCompatActivity {
 
         // Checks for first message. If true, it immediately sets to false with an empty payload.
         if (this.firstMessage) {
-            //ChatMessage newMessage = new ChatMessage(message, "2");
-            //messages.add(newMessage);
             this.firstMessage = false;
+
         /* As long as the message bar isn't empty, it creates a ChatMessage from the user
         containing the text.
          */
         } else {
             if (message.length() > 0) {
-                ChatMessage newMessage = new ChatMessage(message, "1");
+                ChatMessage newMessage = new ChatMessage(message, true);
                 messages.add(newMessage);
 
             }
@@ -182,7 +170,7 @@ public class MainActivity extends AppCompatActivity {
                         Thread.sleep(1000);
                         switch (run.responseType()) {
                             case "text":
-                                output = new ChatMessage(run.text(), "2");
+                                output = new ChatMessage(run.text(), false);
                                 messages.add(output);
                                 break;
 
