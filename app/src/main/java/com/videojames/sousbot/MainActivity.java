@@ -63,9 +63,11 @@ public class MainActivity extends AppCompatActivity {
 
         editText = findViewById(R.id.edit_text);
         ImageButton sendButton = findViewById(R.id.send_button);
+
         messages = new ArrayList<>();
         messagesLog = new MessageAdapter(messages);
         messagesView = findViewById(R.id.messages_view);
+
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setStackFromEnd(true);
         messagesView.setLayoutManager(layoutManager);
@@ -86,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    /** Initiates the Watson services and autheticates them with the keys found in Constants.
+    /** Initiates the Watson services and authenticates them with the keys found in Constants.
      *
      */
     private void watsonServices() {
@@ -134,7 +136,7 @@ public class MainActivity extends AppCompatActivity {
                     watsonSession = call.execute();
                 }
 
-                //Takes the string and puts it into an input message for Watson
+                //Takes the string and creates an input message for Watson
                 MessageInput input = new MessageInput.Builder()
                         .text(message)
                         .build();

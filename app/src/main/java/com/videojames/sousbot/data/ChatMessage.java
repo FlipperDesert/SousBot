@@ -5,7 +5,9 @@ import com.ibm.watson.assistant.v2.model.RuntimeResponseGeneric;
 import java.util.Date;
 
 
-
+/**
+ * Creates a ChatMessage object containing either an image or text data.
+ */
 public class ChatMessage {
     Date date = new Date();
     private String text;
