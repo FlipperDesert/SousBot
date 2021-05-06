@@ -13,4 +13,4 @@
 .externalNativeBuild
 .cxx
 local.properties
-Constants.java
+app/src/main/java/com/videojames/sousbot/util/Constants.java
